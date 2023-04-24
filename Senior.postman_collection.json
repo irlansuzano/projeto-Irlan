@@ -1,0 +1,461 @@
+{
+	"info": {
+		"_postman_id": "2dd92f95-bf9f-43a0-9bd2-ba1df9a077dc",
+		"name": "Senior",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19973875"
+	},
+	"item": [
+		{
+			"name": "Pedidos",
+			"item": [
+				{
+					"name": "get pedidos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/pedidos",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pedidos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get pedido por id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/pedidos/94dad3c4-5215-4134-80e8-42c0b72136d0",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pedidos",
+								"94dad3c4-5215-4134-80e8-42c0b72136d0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post criar pedido",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/pedidos/criar",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pedidos",
+								"criar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "alterar pedido",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n            \"id\": \"94dad3c4-5215-4134-80e8-42c0b72136d0\",\r\n            \"itens\": null,\r\n            \"valorPedido\": null,\r\n            \"statusPedido\": \"ABERTO\"\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/pedidos/alterar/{id}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pedidos",
+								"alterar",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "adicionar itensPedido ao pedido",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/pedidos/{id}/adicionar_lista_itens/{idLista}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pedidos",
+								"{id}",
+								"adicionar_lista_itens",
+								"{idLista}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletar pedido",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "calhost:8080/pedidos/deletar/{id}",
+							"host": [
+								"calhost"
+							],
+							"port": "8080",
+							"path": [
+								"pedidos",
+								"deletar",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Produtos/Serviços",
+			"item": [
+				{
+					"name": "get produtosServicos ",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/produto_servico",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"produto_servico"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "produto/serviço pelo id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/produto_servico/9e78c2d8-abad-4c45-a2e8-eaad5674de70",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"produto_servico",
+								"9e78c2d8-abad-4c45-a2e8-eaad5674de70"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "criar produto/serviço",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"postman.setGlobalVariable(\"v4uuid\", 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) { var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8); return v.toString(16); }));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"9e78c2d8-abad-4c45-a2e8-eaad5674de70\",\r\n    \"nome\": \"Óleo diesel\",\r\n    \"preco\": 29.90,\r\n    \"quantidade\": 150.0,\r\n    \"estado\": \"ATIVO\",\r\n    \"itensPedido\": null,\r\n    \"produto\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/produto_servico/criar",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"produto_servico",
+								"criar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "alterar produto/serviço",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n            \"id\": \"9e78c2d8-abad-4c45-a2e8-eaad5674de70\",\r\n            \"nome\": \"Óleo diesel\",\r\n            \"preco\": 29.90,\r\n            \"quantidade\": 145.0,\r\n            \"estado\": \"ATIVO\",\r\n            \"itensPedido\": null,\r\n            \"produto\": true\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/produto_servico/alterar/9e78c2d8-abad-4c45-a2e8-eaad5674de70",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"produto_servico",
+								"alterar",
+								"9e78c2d8-abad-4c45-a2e8-eaad5674de70"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletar produto/serviço",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"9e78c2d8-abad-4c45-a2e8-eaad5674de70\",\r\n    \"nome\": \"Óleo diesel\",\r\n    \"preco\": 29.90,\r\n    \"quantidade\": 150.0,\r\n    \"estado\": \"ATIVO\",\r\n    \"itensPedido\": null,\r\n    \"produto\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/produto_servico/deletar/[id}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"produto_servico",
+								"deletar",
+								"[id}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Itens Pedido",
+			"item": [
+				{
+					"name": "get itens do pedido",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/itens_pedidos",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"itens_pedidos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "put adicionar produtos a lista de pedidos",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/itens_pedidos/alterar/b5ccef75-ba68-4bc1-bc6b-0361be94b965/itens/ef39b34e-e8c2-46cb-a114-c7c53c7aedf5",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"itens_pedidos",
+								"alterar",
+								"b5ccef75-ba68-4bc1-bc6b-0361be94b965",
+								"itens",
+								"ef39b34e-e8c2-46cb-a114-c7c53c7aedf5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "buscar itensPedido pelo id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/itens_pedidos/{id}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"itens_pedidos",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "criar novo itensPedido",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/itens_pedidos/criar",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"itens_pedidos",
+								"criar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "alterar itensPedido",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\r\n            \"id\": \"3a082f2f-3aed-4e32-a280-ac62b8f28ef8\",\r\n            \"produtosServicos\": [],\r\n            \"pedido\": null\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/itens_pedidos/alterar/588efdee-bc0c-4527-a6c2-52e4d020cdeb",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"itens_pedidos",
+								"alterar",
+								"588efdee-bc0c-4527-a6c2-52e4d020cdeb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletar itensPedido",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\r\n            \"id\": \"3a082f2f-3aed-4e32-a280-ac62b8f28ef8\",\r\n            \"produtosServicos\": [],\r\n            \"pedido\": null\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/itens_pedidos/deletar/{id}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"itens_pedidos",
+								"deletar",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remover produto da lista de itensPedido",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/itens_pedidos/alterar/{id}/itens/{idItem}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"itens_pedidos",
+								"alterar",
+								"{id}",
+								"itens",
+								"{idItem}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
