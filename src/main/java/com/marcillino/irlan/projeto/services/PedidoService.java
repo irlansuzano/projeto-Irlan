@@ -67,7 +67,7 @@ public class PedidoService {
     }
 
     /**
-     * Método responsável por alterar um produto/serviço
+     * Método responsável por alterar um pedido
      * Obs: Caso não seja existente, o método irá criar um
      * @param pedido
      * @return
@@ -87,11 +87,11 @@ public class PedidoService {
     }
 
     /**
-     * Método responsável por deletar um produto/serviço
+     * Método responsável por deletar um pedido
      * @param pedido
      */
-    public void deletarPedido(Pedido pedido) {
-        pedidoRepository.deleteById(pedido.getId());
+    public void deletarPedido(UUID id) {
+        pedidoRepository.deleteById(id);
     }
 
     /**

@@ -72,8 +72,8 @@ public class ItensPedidoResource {
      * @return
      */
     @DeleteMapping(value = "/deletar/{id}")
-    public ResponseEntity deletarListaItensPedido(@PathVariable UUID id, @RequestBody ItensPedido itensPedido){
-        itensPedidoService.deletarItemPedido(itensPedido);
+    public ResponseEntity deletarListaItensPedido(@PathVariable UUID id){
+        itensPedidoService.deletarItemPedido(id);
         return ResponseEntity.ok().build();
     }
 

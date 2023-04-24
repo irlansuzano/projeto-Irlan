@@ -99,11 +99,11 @@ public class ItensPedidoService {
 
     /**
      * Método responsável por deletar uma lista de itens do pedido
-     * @param itensPedido
+     * @param id
      */
-    public void deletarItemPedido(ItensPedido itensPedido) {
+    public void deletarItemPedido(UUID id) {
         try {
-            itensPedidoRepository.deleteById(itensPedido.getId());
+            itensPedidoRepository.deleteById(id);
         }catch(ConfigDataResourceNotFoundException e) {
             e.getMessage();
         }

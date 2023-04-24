@@ -68,8 +68,8 @@ public class PedidoResource {
      * @param idLista
      * @return
      */
-    @PutMapping(value= "/{id}/adicionar_lista_itens")
-    public ResponseEntity<Pedido> adicionarItens(@PathVariable UUID id, @RequestBody UUID idLista){
+    @PutMapping(value= "/{id}/adicionar_lista_itens/{idLista}")
+    public ResponseEntity<Pedido> adicionarItens(@PathVariable UUID id, @PathVariable UUID idLista){
         return ResponseEntity.ok().body(pedidoService.adicionarLista(id, idLista));
     }
 
@@ -80,8 +80,8 @@ public class PedidoResource {
      * @return
      */
     @DeleteMapping(value = "/deletar/{id}")
-    public ResponseEntity deletarPedido(@PathVariable UUID id, @RequestBody Pedido pedido){
-        pedidoService.deletarPedido(pedido);
+    public ResponseEntity deletarPedido(@PathVariable UUID id){
+        pedidoService.deletarPedido(id);
         return ResponseEntity.ok().build();
     }
 }
